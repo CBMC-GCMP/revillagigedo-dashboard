@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parque Nacional Revillagigedo</title>
+    <link rel="shortcut icon" href="www/faviconCON.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #024896;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 45px;
+            letter-spacing: 2px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f9;
+            padding: 10px;
+        }
+        .tabs button {
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            color: #024896;
+            cursor: pointer;
+        }
+        .tabs button:hover {
+            text-decoration: underline;
+        }
+        .content {
+            display: none;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .landing-background {
+            background-image: url("www/background2.png");
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .description-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .description-box {
+            width: 90%;
+            max-width: 1200px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            text-align: justify;
+        }
+        #acknowledgments {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        #acknowledgments img {
+            height: 80px;
+            margin: 5px;
+        }
+        #acknowledgments2 {
+            display: none;
+        }
+        #inicio.active #acknowledgments2 {
+            display: block;
+            margin-top: 20px;
+        }
+        #map {
+            height: 400px;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Parque Nacional Revillagigedo</div>
+    
+    <div class="tabs">
+        <button onclick="showContent('inicio')">Inicio</button>
+        <button onclick="showContent('fishing')">Monitoreo Embarcaciónes</button>
+        <button onclick="showContent('climate')">Cambio Climático</button>
+        <button onclick="showContent('bio')">Monitoreo Biológico</button>
+        <button onclick="showContent('expedition')">Informe de Expedición</button>
+        <button onclick="showContent('research')">Investigación</button>
+    </div>
+
+    <div id="inicio" class="content active">
+        <div class="landing-background">
+            <h1></h1>
+        </div>
+        
+        <div id="acknowledgments">
+            <img src="www/government_logos.jpg" alt="Government Logos">
+        </div>
+        
+        <div class="description-container">
+            <div class="description-box">
+                <p style="text-align: justify;">
+                    <strong style="display: block; text-align: center; font-size: 30px;">El Archipiélago de Revillagigedo:</strong><br>
+                    Constituye un conjunto de cuatro islas volcánicas situadas en el Océano Pacífico. Estas son reconocidas por albergar un 
+  ecosistema único y singular. Ubicadas aproximadamente a 458 kilómetros al suroeste del municipio de Los Cabos, Baja 
+  California Sur, y a 698 kilómetros al oeste de Manzanillo, se encuentran en una posición remota y distante. Inicialmente 
+  vinculadas al estado mexicano de Colima, fueron otorgadas en 1861 para establecer una colonia penal, pero actualmente son 
+  propiedad y están bajo jurisdicción federal mexicana.<br><br>
+  Decretado en noviembre de 2017 como Parque Nacional a cargo de la Comisión Nacional de Áreas Naturales Protegidas de
+  México (CONANP), se convirtió en el área marina protegida de no pesca más grande de Norteamérica. Contando con importantes
+  designaciones internacionales, las cuales reafirman la importancia del área:<br>
+  <ul>
+    <li>1996: Área de importancia para la anidación de Aves</li>
+    <li>2002: Humedal de importancia internacional, sitio RAMSAR número: 1357</li>
+    <li>2016: Patrimonio de la Humanidad por la UNESCO</li>
+    <li>2021: Blue Park</li>
+  </ul>
+  El acceso a estas islas desde Los Cabos suele llevar entre 26 y 30 horas por vía marítima, aunque existe una pequeña pista de aterrizaje militar en la Isla Socorro, 
+  la cual es propiedad de la Secretaría de Marina, la cual colabora en el resguardo y vigilancia del área.<br><br>
+  <strong style='display: block; text-align: center; font-size: 20px;'>Importancia de la Colaboración en la Plataforma de Investigación del Parque Nacional Revillagigedo</strong><br>
+La plataforma de investigación del Parque Nacional Revillagigedo es esencial para integrar y coordinar los esfuerzos científicos y de conservación. 
+Esta herramienta permite a los investigadores acceder a datos actualizados, 
+compartir hallazgos y colaborar eficientemente. 
+Al centralizar la información, se facilita el análisis de los impactos ambientales y 
+se mejora la toma de decisiones para la protección del archipiélago.<br><br>
+Descripción de las pestañas en el dashboard<br>
+
+<ul>
+    <li>Monitoreo Embarcaciónes: visualización y análisis de la actividad de embarcaciones de pesca en Revillagigedo, mostrando su distribución espacial y temporal.</li>
+    <li>Cambio Climático: datos y estudios sobre los efectos del cambio climático en el archipiélago.</li>
+    <li>Monitoreo Biológico: información sobre el monitoreo biológico en el Parque Nacional.</li>
+    <li>Informe de Expedición: resúmenes de expediciones científicas con hallazgos clave y recomendaciones para futuras investigaciones.</li>
+    <li>Investigación: acceso a listado de publicaciones, facilitando la colaboración y el intercambio de conocimientos.</li>
+  </ul>
+  <br>
+                </p>
+            </div>
+        </div>
+
+        
+
+        <div id="map"></div>
+
+        <div id="acknowledgments2">
+            <img src="www/LogosBanner.png" alt="Logos ONG" style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto;">
+        </div>
+    </div>
+
+    <div id="fishing" class="content">
+        <div class="landing-background">
+            <h1></h1>
+        </div>
+        <iframe src="https://datalake-cbmc-revillagigedo.s3.amazonaws.com/revillagigedo_dashboard/vms_revillagigedo_report_es.html"></iframe>
+    </div>
+    <div id="climate" class="content">
+        <div class="landing-background">
+            <h1></h1>
+        </div>
+        <iframe src="https://datalake-cbmc-revillagigedo.s3.amazonaws.com/revillagigedo_dashboard/revillagigedo_report_es.html"></iframe>
+    </div>
+    <div id="bio" class="content">
+        <div class="landing-background" style="background-image: url('www/background2.png');">
+            <h1></h1>
+        </div>
+        <div style="display: flex; justify-content: center; padding: 20px; flex-wrap: wrap;">
+            <div style="background-color: #ff9999; padding: 20px; margin: 10px; border-radius: 10px; text-align: center; width: 200px;">
+                <a href="https://datalake-cbmc-revillagigedo.s3.amazonaws.com/revillagigedo_dashboard/rocky_reefs_monitoring_report_es.html" 
+                target="_blank" style="text-decoration: none; color: black; font-weight: bold;">Arrecifes Rocosos</a>
+            </div>
+            <div style="background-color: #99ccff; padding: 20px; margin: 10px; border-radius: 10px; text-align: center; width: 200px;">
+                <a href="https://datalake-cbmc-revillagigedo.s3.amazonaws.com/revillagigedo_dashboard/Informe_Tortugas_PNR_2022.pdf" 
+                target="_blank" style="text-decoration: none; color: black; font-weight: bold;">Tortugas Marinas</a>
+            </div>
+            <div style="background-color: #99ff99; padding: 20px; margin: 10px; border-radius: 10px; text-align: center; width: 200px;">
+                <a href="https://datalake-cbmc-revillagigedo.s3.amazonaws.com/revillagigedo_dashboard/mamiferos_marinos.pdf" 
+                target="_blank" style="text-decoration: none; color: black; font-weight: bold;">Mamíferos Marinos</a>
+            </div>
+        </div>
+    </div>
+    <div id="expedition" class="content">
+        <div class="landing-background" style="background-image: url('www/background2.png');">
+            <h1></h1>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 20px;">
+            <div style="background-color: #009da6; padding: 20px; margin: 10px; border-radius: 10px; text-align: center; width: 200px;">
+                <a href="https://datalake-cbmc-revillagigedo.s3.amazonaws.com/revillagigedo_dashboard/Expedicion_revillagigedo_2023_completa_final.pdf" 
+                target="_blank" style="text-decoration: none; color: white; font-weight: bold; font-size: 20px;">2023</a>
+            </div>
+            <p style="margin-top: 10px; text-align: center; font-size: 16px; color: #333;">Descarga el informe 2023</p>
+        </div>
+    </div>
+    <div id="research" class="content">
+        <div class="landing-background">
+            <h1></h1>
+        </div>
+        <iframe src="https://docs.google.com/spreadsheets/d/1hHpilcl1OB417mQp5hLs-qkWeIiq6b5aj-jMS4ZzM7Y/edit?usp=sharing"></iframe>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+
+        console.log("Initializing the map...");
+
+        // Initialize Leaflet map
+        const map = L.map('map').setView([18.8, -113], 6);
+        console.log("Map initialized with view set to [18.8, -113] and zoom level 6.");
+
+        L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri',
+            maxZoom: 16
+        }).addTo(map);
+        console.log("National Geographic tile layer added to the map.");
+
+        // Load GeoJSON for the Revillagigedo protected area
+        fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+    const testGeoJSON = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "NOMBRE": "Revillagigedo",
+        "CAT_DECRET": "PN",
+        "ESTADOS": "S/E",
+        "MUNICIPIOS": "S/M",
+        "REGION": "Península de Baja California y Pacífico Norte"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-115.4714, 18.583],
+            [-115.4714, 17.6552],
+            [-114.517, 17.6552],
+            [-112.2941, 17.6552],
+            [-110.0781, 17.6552],
+            [-110.0781, 20.0086],
+            [-115.4714, 20.0086],
+            [-115.4714, 18.583]
+          ]
+        ]
+      }
+    }
+  ]
+};
+
+// Add GeoJSON to map
+L.geoJSON(testGeoJSON, {
+  style: {
+    color: "#FF5733",
+    weight: 2,
+    fillOpacity: 0.4
+  }
+}).addTo(map);
+map.fitBounds(L.geoJSON(testGeoJSON).getBounds());
+
+    </script>
+</body>
+</html>
