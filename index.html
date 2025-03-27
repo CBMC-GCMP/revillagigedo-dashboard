@@ -117,6 +117,7 @@
         <button onclick="showContent('bio')">Monitoreo Biológico</button>
         <button onclick="showContent('expedition')">Informe de Expedición</button>
         <button onclick="showContent('research')">Investigación</button>
+        <button onclick="showContent('book')">Libro Area Marina de Revillagigedo</button>
     </div>
 
     <div id="inicio" class="content active">
@@ -225,6 +226,27 @@ Descripción de las pestañas en el dashboard<br>
             <h1></h1>
         </div>
         <iframe src="https://docs.google.com/spreadsheets/d/1hHpilcl1OB417mQp5hLs-qkWeIiq6b5aj-jMS4ZzM7Y/edit?usp=sharing"></iframe>
+    </div>
+
+    <div id="book" class="content">
+        <div class="landing-background" style="background-image: url('www/background2.png');">
+            <h1></h1>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 20px;">
+            <div style="max-width: 300px; text-align: center;">
+                <img src="www/book_cover.jpg" alt="Portada del libro sobre el área marina de Revillagigedo" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            </div>
+            <a href="https://escholarship.org/uc/item/9ms1388x" target="_blank" style="background-color: #024896; color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center;">
+                Descarga el nuevo libro sobre el area marina de Revillagigedo
+            </a>
+            <div style="width: 100%; max-width: 600px; text-align: center;">
+                <h2 style="color: #024896; margin-bottom: 15px;">Escuchas un podcast sobre el libro hecho con IA en inglés</h2>
+                <audio controls style="width: 100%;">
+                    <source src="www/audio/book_audio.wav" type="audio/wav">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
