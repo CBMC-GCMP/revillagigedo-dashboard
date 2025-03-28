@@ -225,7 +225,9 @@ Descripción de las pestañas en el dashboard<br>
         <div class="landing-background">
             <h1></h1>
         </div>
-        <iframe src="https://docs.google.com/spreadsheets/d/1hHpilcl1OB417mQp5hLs-qkWeIiq6b5aj-jMS4ZzM7Y/edit?usp=sharing"></iframe>
+        <div style="display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 20px;">
+            <iframe src="https://docs.google.com/spreadsheets/d/1hHpilcl1OB417mQp5hLs-qkWeIiq6b5aj-jMS4ZzM7Y/edit?usp=sharing" style="width: 100%; height: 80vh; border: none;"></iframe>
+        </div>
     </div>
 
     <div id="book" class="content">
@@ -234,17 +236,69 @@ Descripción de las pestañas en el dashboard<br>
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 20px;">
             <div style="max-width: 300px; text-align: center;">
-                <img src="www/book_cover.jpg" alt="Portada del libro sobre el área marina de Revillagigedo" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                <img src="www/Cover.jpg" alt="Portada del libro sobre el área marina de Revillagigedo" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
             </div>
             <a href="https://escholarship.org/uc/item/9ms1388x" target="_blank" style="background-color: #024896; color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center;">
                 Descarga el nuevo libro sobre el area marina de Revillagigedo
             </a>
-            <div style="width: 100%; max-width: 600px; text-align: center;">
-                <h2 style="color: #024896; margin-bottom: 15px;">Escuchas un podcast sobre el libro hecho con IA en inglés</h2>
-                <audio controls style="width: 100%;">
-                    <source src="www/audio/book_audio.wav" type="audio/wav">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
+
+            <div style="max-width: 600px; margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h2 style="color: #024896; text-align: center; margin-bottom: 20px;">Escucha un podcast sobre el libro hecho con AI</h2>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                    <audio controls style="width: 100%; margin: 10px 0;">
+                        <source src="www/audio/book_audio_optimized.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                    <p style="text-align: center; color: #666; font-size: 14px; margin: 0;">
+                        Duración: 33:21 | Formato: MP3 | Tamaño: 23MB
+                    </p>
+                </div>
+            </div>
+            
+            <div style="max-width: 800px; margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h2 style="color: #024896; text-align: center; margin-bottom: 20px;">Referencias por Capítulo</h2>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 1:</strong> Rodríguez de la Peña, A., Carey, S., Siebe, C., & Salgado Castrejón, M. (2025). Origen volcánico y características geológicas. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/74c216c5" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 2:</strong> Favoretto, F., et al. (2025). Aspectos oceanográficos y cambios climáticos. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/89c5v5rb" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 3:</strong> Ramírez Zúñiga, M. A., et al. (2025). Arrecifes rocosos. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/3wp552dt" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 4:</strong> Carone, E., et al. (2025). Una visión general de las especies de Mamíferos Marinos. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/05r0m004" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 5:</strong> Carone, E., et al. (2025). Megafauna en Revillagigedo: investigación, riesgos y rumbo futuro. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/7rd5x6zd" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 6:</strong> Carone, E., et al. (2025). Condrictios: Perspectivas ecológicas y de conservación. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/4z4572fs" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 7:</strong> Fernández-Sanz, H., et al. (2025). Perspectivas actuales sobre la ecología de las tortugas marinas. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/90d68887" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                    <div style="padding: 15px; background-color: white; border-radius: 8px; border-left: 4px solid #024896;">
+                        <p style="margin: 0; line-height: 1.5;">
+                            <strong>Capítulo 8:</strong> Soldatini, C., et al. (2025). Aves marinas y costeras. In Área Marina del Parque Nacional Revillagigedo: Pasado, Presente y Futuro de la Investigación Marina. <a href="https://escholarship.org/uc/item/1qd619mv" target="_blank" style="color: #024896; text-decoration: none;">Ver capítulo →</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
